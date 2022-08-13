@@ -1,0 +1,238 @@
+Assignment - 15 A Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+Array and Functions in C Language
+
+1. Write a function to find the greatest number from the given array of any size. (TSRS).
+
+Ans.  //1. Write a function to find the greatest number from
+// the given array of any size.(TSRS)
+#include<iostream>
+using namespace std;
+int largest(int *arr,int size) {
+	int largest;
+	cout<<"Enter array element: ";
+	for(int i=0; i<size; i++) {
+		cin>>arr[i];
+		if(i==0)largest=arr[i];
+		if(arr[i]>largest)largest=arr[i];
+	}
+	return largest;
+}
+int main() {
+	int size;
+	cout<<"Enter size of array: ";
+	cin>>size;
+	int arr[size];
+	int ans=largest(arr,size);
+	cout<<"Largest element of array: "<<ans;
+	return 0;
+}
+
+
+
+2. Write a function to find the smallest number from the given array of any size. (TSRS).
+
+Ans.//1. Write a function to find the smallestt number from
+// the given array of any size.(TSRS)
+#include<iostream>
+using namespace std;
+int smallest(int *arr,int size) {
+	int smallest;
+	cout<<"Enter array element: ";
+	for(int i=0; i<size; i++) {
+		cin>>arr[i];
+		if(i==0)smallest=arr[i];
+		if(arr[i]<smallest)smallest=arr[i];
+	}
+	return smallest;
+}
+int main() {
+	int size;
+	cout<<"Enter size of array: ";
+	cin>>size;
+	int arr[size];
+	int ans=smallest(arr,size);
+	cout<<"smallest element of array: "<<ans;
+	return 0;
+}
+
+
+
+3. Write a function to sort an array of any size. (TSRS).
+
+Ans. //1. Write a function to find the greatest number from
+// the given array of any size.(TSRS)
+#include<iostream>
+using namespace std;
+int sort(int *arr,int size) {
+	int temp;
+
+	for(int i=0; i<size; i++)for(int j=i+1; j<size; j++) {
+			if(arr[i]>arr[j]) {
+				temp=arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+		}
+
+	return 0;
+}
+int main() {
+	int size;
+	cout<<"Enter size of array: ";
+	cin>>size;
+	int arr[size];
+	for(int i=0; i<size; i++)cin>>arr[i];
+	sort(arr,size);
+	for(int i=0; i<size; i++)cout<<endl<<arr[i];
+	return 0;
+}
+
+
+
+4. Write a function to rotate an array by n position in d direction. The d is an indicative
+value for left or right. (For example, if array of size 5 is [32, 29, 40, 12, 70]; n is 2 and
+d is left, then the resulting array after left rotation 2 times is [40, 12, 70, 32, 29] ).
+
+Ans. #include<iostream>
+#include<string.h>
+using namespace std;
+int main() {
+	string d;
+	int size,temp,n;
+	cout<<"Enter size of array:";
+	cin>>size;
+	int arr[size];
+	cout<<"Enter array elements:";
+	for(int i=0; i<size; i++)cin>>arr[i];
+	cout<<"\nEnter n:";
+	cin>>n;
+	cout<<"Enter d:";
+	cin>>d;
+
+	if(!(d.compare("right"))) {
+		for(int i=1; i<=n; i++) {
+			temp=arr[size-1];
+			for(int j=size-1; j>0; j--) {
+				arr[j]=arr[j-1];
+			}
+			arr[0]=temp;
+		}
+
+	}//for moving right:
+
+
+	else if(!(d.compare("left"))) {
+		for(int i=1; i<=n; i++) {
+			temp=arr[0];
+			for(int j=0; j<=size-1; j++) {
+				arr[j]=arr[j+1];
+			}
+			arr[size-1]=temp;
+		}
+
+
+	}//for moving left:
+
+
+	cout<<"\nNew Array:";
+	for(int k=0; k<size; k++)cout<<endl<<arr[k];
+	return 0;
+}
+
+
+5. Write a function to find the first occurrence of adjacent duplicate values in the array
+Function has to return the value of the element.
+
+Ans. 
+
+
+
+6. Write a function in C to read n number of values in an array and display it in reverse
+order.
+
+Ans. #include<iostream>
+using namespace std;
+void reverse_print(int *arr,int size) {
+	cout<<"Array in reverse order: ";
+	for(int i=size-1; i>=0; i--)cout<<endl<<arr[i];
+
+}
+
+int main() {
+	int size;
+	cout<<"Enter size of array: ";
+	cin>>size;
+	int arr[size];
+	for(int i=0; i<size; i++)cin>>arr[i];
+	reverse_print(arr,size);
+	return 0;
+}
+
+
+7. Write a function in C to count a total number of duplicate elements in an array.
+
+Ans. #include<iostream>
+#include<string.h>
+using namespace std;
+int main() {
+	int size,n,count=0;
+	cout<<"Enter Size of array:";
+	cin>>size;
+	int arr[size];
+	cout<<"Enter array:";
+	for(int i=0; i<size; i++)cin>>arr[i];
+	cout<<"Enter element to check:";
+	cin>>n;
+	for(int i=0; i<size; i++) {
+		if(arr[i]==n)count++;
+	}
+	cout<<count;
+	return 0;
+}
+
+
+8. Write a function in C to print all unique elements in an array.
+
+Ans. 
+
+
+9. Write a function in C to merge two arrays of the same size sorted in descending
+order.
+
+Ans. 
+
+
+10. Write a function in C to count the frequency of each element of an array.
+
+Ans. #include<iostream>
+#include<string.h>
+using namespace std;
+int main() {
+	
+	int size,n,flag=0;
+	cout<<"Enter Size of array:";
+	cin>>size;
+	int arr[size],freq[size];
+	cout<<"Enter array:";
+	for(int i=0; i<size; i++)cin>>arr[i];
+	
+	for(int i=0; i<size; i++) {
+		flag=0;
+		for(int k=0; k<i; k++) {
+			if(arr[i]==arr[k]) {
+				flag=1;
+				break;
+			}
+		}
+		int count=0;
+		if(flag==0) {
+			int n=arr[i];
+			for(int j=0; j<size; j++) {
+				if(arr[j]==n)count++;
+			}
+			cout<<"\nFrequency of "<<arr[i]<<" : "<<count;
+		}
+	}
+	return 0;
+}
